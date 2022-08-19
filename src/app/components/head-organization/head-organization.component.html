@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Head organization</h2>
+  <app-table-ui [data]="this.organization">
+    <ng-template>
+      <th *ngFor="let header of header">{{header}}</th>
+    </ng-template>
+    <ng-template #tr let-item="item">
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.short_title}}</td>
+      <td>{{item.inn}}</td>
+      <td>{{item.kpp}}</td>
+      <td>{{item.founder}}</td>
+      <td>{{item.address}}</td>
+      <td>{{item.phone}}</td>
+      <div *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
+        <app-branch-office>
+        </app-branch-office>
+      </div>
+      <button type="button" class="btn-flat"
+              (click)="this.headOrganizationServices.openBranchOrganizator()">Филиалы
+      </button>
+    </ng-template>
+  </app-table-ui>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <app-table-ui [data]="branchOffice">
+    <ng-template>
+      <th *ngFor="let header of header">{{header}}</th>
+    </ng-template>
+    <ng-template #tr let-item="item">
+      <td>{{item.id}}</td>
+      <td>{{item.office_address}}</td>
+      <td>{{item.office_phone}}</td>
+      <td>{{item.official_person}}</td>
+    </ng-template>
+  </app-table-ui>
+</div>
