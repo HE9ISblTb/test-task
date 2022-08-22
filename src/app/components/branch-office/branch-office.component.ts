@@ -3,6 +3,8 @@ import {branch as data} from "../../data/branch";
 import {BranchOfficeServices} from "../../services/branch-office/branch-office-services";
 import {Branch} from "../../class/branch";
 import {filter} from "rxjs";
+import {HeadOrganizationServices} from "../../services/head-organization/head-organization-services";
+import {headOrganization} from "../../data/head-organization";
 
 @Component({
   selector: 'app-branch-office',
@@ -11,13 +13,20 @@ import {filter} from "rxjs";
 })
 export class BranchOfficeComponent implements OnInit {
 
-  public header = ['id', 'Адрес офиса', 'Телефон', 'Должностное лицо'];
+  public header = ['Адрес офиса', 'Телефон', 'Должностное лицо'];
 
-  constructor(public branchOfficeServices: BranchOfficeServices) { }
+  public branchOffice: Branch[];
+
+  constructor(public branchOfficeServices: BranchOfficeServices,
+              public headOrganizationServices: HeadOrganizationServices) { }
 
   ngOnInit() {
+    this.getOrganization();
   }
 
-  branchOffice: Branch[] = data ;
+  getOrganization() {
+    this.branchOfficeServices.getOrganization()
+      .subscribe(branchOffice => this.branchOffice = branchOffice.filter(data => data.id_head_organization == this.headOrganizationServices.organizationIdForBrancher));
+  }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HeadOrganizationServices} from "../../../services/head-organization/head-organization-services";
+import {AppService} from "../../../services/app-services";
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public headOrganizationServices: HeadOrganizationServices,
+              public appService: AppService) { }
 
   ngOnInit(): void {
   }

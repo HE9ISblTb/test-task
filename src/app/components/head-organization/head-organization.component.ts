@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HeadOrganization} from "../../class/head-organization";
-import {headOrganization as data} from "../../data/head-organization";
+import {headOrganization} from "../../data/head-organization";
 import {HeadOrganizationServices} from "../../services/head-organization/head-organization-services";
+import {AutorizationService} from "../../services/autorization/autorization-services";
+import {AppService} from "../../services/app-services";
 
 
 @Component({
@@ -13,18 +15,21 @@ export class HeadOrganizationComponent implements OnInit {
 
   public header = ['id', 'Наименование', 'Сокращение', 'ИНН', 'КПП', 'Учредитель(ФИО)', 'Адрес', 'Телефон'];
 
-  public organization: HeadOrganization[] | undefined;
+  public organization: HeadOrganization[];
+  public filials = false;
 
-  constructor(public headOrganizationServices: HeadOrganizationServices) { }
+  constructor(public headOrganizationServices: HeadOrganizationServices,
+              public autorizationServices: AutorizationService,
+              public appService: AppService) { }
 
   ngOnInit() {
-    this.getOrganization();
+    this.getHeadOrganization();
+    this.appService.signIn();
   }
 
-  getOrganization() {
-    this.headOrganizationServices.getOrganization()
+  getHeadOrganization() {
+    this.headOrganizationServices.getHeadOrganization()
       .subscribe(organization => this.organization = organization);
   }
-  //organizations: HeadOrganization[] = data;
 
 }

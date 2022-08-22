@@ -1,25 +1,35 @@
+<app-add-head-organization
+  *ngIf="this.headOrganizationServices.indicatorModalAddHeadOrganization"></app-add-head-organization>
+<app-edit-head-organization
+  *ngIf="this.headOrganizationServices.indicatorModalEditHeadOrganization"></app-edit-head-organization>
+
 <div class="container">
-  <h2>Head organization</h2>
   <app-table-ui [data]="this.organization">
-    <ng-template>
+    <ng-template #th>
       <th *ngFor="let header of header">{{header}}</th>
     </ng-template>
     <ng-template #tr let-item="item">
       <td>{{item.id}}</td>
-      <td>{{item.title}}</td>
+      <td (click)="this.headOrganizationServices.openBranchOrganizator(item.id)">{{item.title}}</td>
       <td>{{item.short_title}}</td>
       <td>{{item.inn}}</td>
       <td>{{item.kpp}}</td>
       <td>{{item.founder}}</td>
       <td>{{item.address}}</td>
       <td>{{item.phone}}</td>
-      <div *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
-        <app-branch-office>
-        </app-branch-office>
-      </div>
-      <button type="button" class="btn-flat"
-              (click)="this.headOrganizationServices.openBranchOrganizator()">Филиалы
+      <!--      <div *ngIf="this.autorizationServices.roles == 'admin'">-->
+      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openModalAddHeadOrganization()">
+        Добавить
       </button>
+      <button type="button" class="btn-flat"
+              (click)="this.headOrganizationServices.openModalEditHeadOrganization(item)">
+        Изменить
+      </button>
+      <!--      </div>-->
     </ng-template>
   </app-table-ui>
+  <div class="container"  *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
+    <app-branch-office></app-branch-office>
+    <button type="button" (click)="this.headOrganizationServices.closeBranchOrganizator()">Скрыть филиалы</button>
+  </div>
 </div>

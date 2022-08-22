@@ -1,13 +1,22 @@
 <div class="container">
-  <app-table-ui [data]="branchOffice">
-    <ng-template>
-      <th *ngFor="let header of header">{{header}}</th>
-    </ng-template>
-    <ng-template #tr let-item="item">
-      <td>{{item.id}}</td>
-      <td>{{item.office_address}}</td>
-      <td>{{item.office_phone}}</td>
-      <td>{{item.official_person}}</td>
-    </ng-template>
-  </app-table-ui>
+  <!--  <app-table-ui [data]="branchOffice">-->
+  <!--    <ng-template #th>-->
+  <!--      <th *ngFor="let header of header">{{header}}</th>-->
+  <!--    </ng-template>-->
+  <!--    <ng-template #tr let-item="item">-->
+  <!--      <td>{{item.id}}</td>-->
+  <!--      <td>{{item.office_address}}</td>-->
+  <!--      <td>{{item.office_phone}}</td>-->
+  <!--      <td>{{item.official_person}}</td>-->
+  <!--    </ng-template>-->
+  <!--  </app-table-ui>-->
+  <div class="card-content" *ngFor="let item of branchOffice">
+    <ul>
+      <li>{{item.id}}</li>
+      <li>{{item.office_address}}</li>
+      <li>{{item.office_phone}}</li>
+      <li>{{item.official_person}}</li>
+      <div class="divider"></div>
+    </ul>
+  </div>
 </div>
