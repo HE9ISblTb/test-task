@@ -2,12 +2,16 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Branch} from "../../class/branch";
 import {branch} from "../../data/branch";
-import {HeadOrganizationServices} from "../head-organization/head-organization-services";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class BranchOfficeServices implements OnDestroy {
 
-  constructor(public headOrganizationServices: HeadOrganizationServices) {
+  public arrayForEdit: any;
+  public indicatorModalAddBranch = false;
+  public indicatorModalEditBranch = false;
+
+  constructor(private http: HttpClient) {
   }
 
   ngOnDestroy() {
@@ -15,6 +19,31 @@ export class BranchOfficeServices implements OnDestroy {
 
   getOrganization(): Observable<Branch[]> {
     return of (branch);
+  }
+
+  addBranchOfficeOrganization(organization: Branch): Observable<Branch[]> {
+    return this.http.post<Branch[]>('', organization);
+  }
+
+  editBranchOfficeOrganization(organization: Branch): Observable<Branch[]> {
+    return this.http.post<Branch[]>('', organization);
+  }
+
+  public openModalAddBranchOffice() {
+    this.indicatorModalAddBranch = true;
+  }
+
+  public closeModalAddBranchOffice() {
+    this.indicatorModalAddBranch = false;
+  }
+
+  public openModalEditBranchOffice(item: any) {
+    this.indicatorModalEditBranch = true;
+    this.arrayForEdit = item;
+  }
+
+  public closeModalEditBranchOffice(){
+    this.indicatorModalEditBranch = false;
   }
 
 }

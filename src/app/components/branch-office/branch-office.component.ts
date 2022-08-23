@@ -5,6 +5,7 @@ import {Branch} from "../../class/branch";
 import {filter} from "rxjs";
 import {HeadOrganizationServices} from "../../services/head-organization/head-organization-services";
 import {headOrganization} from "../../data/head-organization";
+import {AutorizationService} from "../../services/autorization/autorization-services";
 
 @Component({
   selector: 'app-branch-office',
@@ -18,7 +19,8 @@ export class BranchOfficeComponent implements OnInit {
   public branchOffice: Branch[];
 
   constructor(public branchOfficeServices: BranchOfficeServices,
-              public headOrganizationServices: HeadOrganizationServices) { }
+              public headOrganizationServices: HeadOrganizationServices,
+              public autorizationServices: AutorizationService) { }
 
   ngOnInit() {
     this.getOrganization();
