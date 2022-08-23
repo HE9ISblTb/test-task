@@ -20,7 +20,7 @@ export class AutorizationService implements OnDestroy {
       if (body.login == data[i].login && body.password == data[i].password) {
         this.roles = data[i].roles;
         this.appServices.signIn();
-        this.route.navigate(['head-organization']).then();
+        this.route.navigate(['list']).then();
         this.signInErrorIndicator = true;
       } else {
         this.appServices.signOut();
