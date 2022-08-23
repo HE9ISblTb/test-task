@@ -2,6 +2,8 @@
   *ngIf="this.headOrganizationServices.indicatorModalAddHeadOrganization"></app-add-head-organization>
 <app-edit-head-organization
   *ngIf="this.headOrganizationServices.indicatorModalEditHeadOrganization"></app-edit-head-organization>
+<app-add-branch-office *ngIf="this.branchOfficeServices.indicatorModalAddBranch"></app-add-branch-office>
+<app-edit-branch-office *ngIf="this.branchOfficeServices.indicatorModalEditBranch"></app-edit-branch-office>
 
 <div class="container">
   <app-table-ui [data]="this.organization">
@@ -10,26 +12,31 @@
     </ng-template>
     <ng-template #tr let-item="item">
       <td>{{item.id}}</td>
-      <td (click)="this.headOrganizationServices.openBranchOrganizator(item.id)">{{item.title}}</td>
+      <td>{{item.title}}</td>
       <td>{{item.short_title}}</td>
       <td>{{item.inn}}</td>
       <td>{{item.kpp}}</td>
       <td>{{item.founder}}</td>
       <td>{{item.address}}</td>
       <td>{{item.phone}}</td>
-      <!--      <div *ngIf="this.autorizationServices.roles == 'admin'">-->
-      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openModalAddHeadOrganization()">
-        Добавить
+      <div *ngIf="this.autorizationServices.roles == 'admin'">
+        <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openModalAddHeadOrganization()">
+          Добавить
+        </button>
+        <button type="button" class="btn-flat"
+                (click)="this.headOrganizationServices.openModalEditHeadOrganization(item)">
+          Изменить
+        </button>
+      </div>
+      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openBranchOrganizator(item.id)">
+        Филиалы
       </button>
-      <button type="button" class="btn-flat"
-              (click)="this.headOrganizationServices.openModalEditHeadOrganization(item)">
-        Изменить
-      </button>
-      <!--      </div>-->
     </ng-template>
   </app-table-ui>
-  <div class="container"  *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
+  <div class="left" *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
     <app-branch-office></app-branch-office>
-    <button type="button" (click)="this.headOrganizationServices.closeBranchOrganizator()">Скрыть филиалы</button>
+    <button type="button" class="btn-flat left" (click)="this.headOrganizationServices.closeBranchOrganizator()">Скрыть
+      филиалы
+    </button>
   </div>
 </div>

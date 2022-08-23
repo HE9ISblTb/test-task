@@ -4,6 +4,7 @@ import {headOrganization} from "../../data/head-organization";
 import {HeadOrganizationServices} from "../../services/head-organization/head-organization-services";
 import {AutorizationService} from "../../services/autorization/autorization-services";
 import {AppService} from "../../services/app-services";
+import {BranchOfficeServices} from "../../services/branch-office/branch-office-services";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class HeadOrganizationComponent implements OnInit {
 
   constructor(public headOrganizationServices: HeadOrganizationServices,
               public autorizationServices: AutorizationService,
-              public appService: AppService) { }
+              public appService: AppService,
+              public branchOfficeServices: BranchOfficeServices) { }
 
   ngOnInit() {
     this.getHeadOrganization();

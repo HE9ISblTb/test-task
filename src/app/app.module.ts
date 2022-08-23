@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AutorizationService} from "./services/autorization/autorization-services";
 import {HeadOrganizationServices} from "./services/head-organization/head-organization-services";
 import {AppService} from "./services/app-services";
+import {TreeServices} from "./services/tree/tree-services";
 
 import { AppComponent } from './app.component';
 import { AutorizationComponent } from './components/autorization/autorization.component';
@@ -19,7 +20,8 @@ import {BranchOfficeServices} from "./services/branch-office/branch-office-servi
 import { AddHeadOrganizationComponent } from './components/head-organization/add-head-organization/add-head-organization.component';
 import { EditHeadOrganizationComponent } from './components/head-organization/edit-head-organization/edit-head-organization.component';
 import { TreeComponent } from './components/tree/tree.component';
-
+import { AddBranchOfficeComponent } from './components/branch-office/add-branch-office/add-branch-office.component';
+import { EditBranchOfficeComponent } from './components/branch-office/edit-branch-office/edit-branch-office.component';
 
 const appRoutes: Routes = [
   {path: '', component: AutorizationComponent},
@@ -40,6 +42,8 @@ const appRoutes: Routes = [
     AddHeadOrganizationComponent,
     EditHeadOrganizationComponent,
     TreeComponent,
+    AddBranchOfficeComponent,
+    EditBranchOfficeComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AppService, AutorizationService, HeadOrganizationServices, BranchOfficeServices],
+  providers: [AppService, AutorizationService, HeadOrganizationServices, BranchOfficeServices, TreeServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,6 +4,7 @@ import {Observable, of} from "rxjs";
 import {HeadOrganization} from "../../class/head-organization";
 import {headOrganization} from "../../data/head-organization";
 import {AutorizationService} from "../autorization/autorization-services";
+import {BranchOfficeServices} from "../branch-office/branch-office-services";
 
 
 @Injectable()

@@ -1,18 +1,20 @@
 <nav>
   <div class="nav-wrapper blue darken-1">
-    <ul class="left hide-on-med-and-down" *ngIf="this.appService.authorizationIndicator">
-<!--      <div class="switch">-->
-<!--        <label>-->
-<!--          <span>Список</span>-->
-<!--          <input type="checkbox">-->
-<!--          <span class="lever" (click)="this.headOrganizationServices.openTree()"></span>-->
-<!--          <span>Дерево</span>-->
-<!--        </label>-->
-<!--      </div>-->
-<!--      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openList()">Список</button>-->
-<!--      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openTree()">Дерево</button>-->
-      <li><a href="/list">Список</a></li>
-      <li><a href="/tree">Дерево</a></li>
-    </ul>
+    <div class="container">
+      <ul class="left hide-on-med-and-down" *ngIf="this.appService.authorizationIndicator">
+        <!--      <div class="switch">-->
+        <!--        <label>-->
+        <!--          <span>Список</span>-->
+        <!--          <input type="checkbox">-->
+        <!--          <span class="lever" (click)="this.headOrganizationServices.openTree()"></span>-->
+        <!--          <span>Дерево</span>-->
+        <!--        </label>-->
+        <!--      </div>-->
+        <!--      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openList()">Список</button>-->
+        <!--      <button type="button" class="btn-flat" (click)="this.headOrganizationServices.openTree()">Дерево</button>-->
+        <li><a href="/list">Список</a></li>
+        <li><a href="/tree">Дерево</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
