@@ -1,0 +1,78 @@
+<div class="shadow" (click)="this.headOrganizationServices.closeModalAddHeadOrganization()"></div>
+<div class="modal custom-modal">
+  <form class="modal-content" [formGroup]="form">
+    <h4>Добавить организацию</h4>
+    <div>
+      <label
+        [ngClass]="(form.controls['id'].invalid && form.controls['id'].touched) ? this.errorClass : this.notErrorClass"
+        for="id">id</label>
+      <input
+        [ngClass]="form.controls['id'].invalid && form.controls['id'].touched ? this.errorClass : this.notErrorClass"
+        id="id" type="text" formControlName="id">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['title'].invalid && form.controls['title'].touched) ? this.errorClass : this.notErrorClass"
+        for="title">Полное наименование организации</label>
+      <input
+        [ngClass]="form.controls['title'].invalid && form.controls['title'].touched ? this.errorClass : this.notErrorClass"
+        id="title" type="text" formControlName="title">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['short_title'].invalid && form.controls['short_title'].touched) ? this.errorClass : this.notErrorClass"
+        for="short_title">Сокращённое наименование организации</label>
+      <input
+        [ngClass]="form.controls['short_title'].invalid && form.controls['short_title'].touched ? this.errorClass : this.notErrorClass"
+        id="short_title" type="text" formControlName="short_title">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['inn'].invalid && form.controls['inn'].touched) ? this.errorClass : this.notErrorClass"
+        for="inn">ИНН организации</label>
+      <input
+        [ngClass]="form.controls['inn'].invalid && form.controls['inn'].touched ? this.errorClass : this.notErrorClass"
+        id="inn" type="text" maxlength="10" formControlName="inn">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['kpp'].invalid && form.controls['kpp'].touched) ? this.errorClass : this.notErrorClass"
+        for="kpp">КПП организации</label>
+      <input
+        [ngClass]="form.controls['kpp'].invalid && form.controls['kpp'].touched ? this.errorClass : this.notErrorClass"
+        id="kpp" type="text" maxlength="9" formControlName="kpp">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['founder'].invalid && form.controls['founder'].touched) ? this.errorClass : this.notErrorClass"
+        for="founder">ФИО учредителя </label>
+      <input
+        [ngClass]="form.controls['founder'].invalid && form.controls['founder'].touched ? this.errorClass : this.notErrorClass"
+        id="founder" type="text" formControlName="founder">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['address'].invalid && form.controls['address'].touched) ? this.errorClass : this.notErrorClass"
+        for="address">Адрес</label>
+      <input
+        [ngClass]="form.controls['address'].invalid && form.controls['address'].touched ? this.errorClass : this.notErrorClass"
+        id="address" type="text" formControlName="address">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['phone'].invalid && form.controls['phone'].touched) ? this.errorClass : this.notErrorClass"
+        for="phone">Номер телефона</label>
+      <input
+        [ngClass]="form.controls['phone'].invalid && form.controls['phone'].touched ? this.errorClass : this.notErrorClass"
+        id="phone" type="text" formControlName="phone">
+    </div>
+  </form>
+  <div class="modal-footer">
+    <a (click)="addData()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Добавить
+    </a>
+    <a (click)="this.headOrganizationServices.closeModalAddHeadOrganization()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Закрыть
+    </a>
+  </div>
+</div>

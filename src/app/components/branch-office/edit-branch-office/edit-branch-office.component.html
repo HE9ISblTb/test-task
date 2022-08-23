@@ -1,0 +1,56 @@
+<div class="shadow" (click)="this.branchOfficeServices.closeModalEditBranchOffice()"></div>
+<div class="modal custom-modal">
+  <form class="modal-content" [formGroup]="form">
+    <h4>Изменить данные об организации</h4>
+    <div>
+      <label
+        [ngClass]="(form.controls['id'].invalid && form.controls['id'].touched) ? this.errorClass : this.notErrorClass"
+        for="id">id</label>
+      <input
+        [ngClass]="form.controls['id'].invalid && form.controls['id'].touched ? this.errorClass : this.notErrorClass"
+        id="id" type="text" formControlName="id">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['office_address'].invalid && form.controls['office_address'].touched) ? this.errorClass : this.notErrorClass"
+        for="office_address">Полное наименование организации</label>
+      <input
+        [ngClass]="form.controls['office_address'].invalid && form.controls['office_address'].touched ? this.errorClass : this.notErrorClass"
+        id="office_address" type="text" formControlName="office_address">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['office_phone'].invalid && form.controls['office_phone'].touched) ? this.errorClass : this.notErrorClass"
+        for="office_phone">Сокращённое наименование организации</label>
+      <input
+        [ngClass]="form.controls['office_phone'].invalid && form.controls['office_phone'].touched ? this.errorClass : this.notErrorClass"
+        id="office_phone" type="text" formControlName="office_phone">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['official_person'].invalid && form.controls['official_person'].touched) ? this.errorClass : this.notErrorClass"
+        for="official_person">ИНН организации</label>
+      <input
+        [ngClass]="form.controls['official_person'].invalid && form.controls['official_person'].touched ? this.errorClass : this.notErrorClass"
+        id="official_person" type="text" maxlength="10" formControlName="official_person">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['id_head_organization'].invalid && form.controls['id_head_organization'].touched) ? this.errorClass : this.notErrorClass"
+        for="id_head_organization">ИНН организации</label>
+      <input
+        [ngClass]="form.controls['id_head_organization'].invalid && form.controls['id_head_organization'].touched ? this.errorClass : this.notErrorClass"
+        id="id_head_organization" type="text" maxlength="10" formControlName="id_head_organization">
+    </div>
+  </form>
+  <div class="modal-footer">
+    <a (click)="editData()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Добавить
+    </a>
+    <a (click)="this.branchOfficeServices.closeModalEditBranchOffice()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Закрыть
+    </a>
+  </div>
+</div>
+
+

@@ -1,0 +1,30 @@
+<app-add-head-organization
+  *ngIf="this.headOrganizationServices.indicatorModalAddHeadOrganization"></app-add-head-organization>
+<app-edit-head-organization
+  *ngIf="this.headOrganizationServices.indicatorModalEditHeadOrganization"></app-edit-head-organization>
+<app-add-branch-office *ngIf="this.branchOfficeServices.indicatorModalAddBranch"></app-add-branch-office>
+<app-edit-branch-office *ngIf="this.branchOfficeServices.indicatorModalEditBranch"></app-edit-branch-office>
+
+<div class="card-content container" *ngFor="let item of organization">
+  <ul class="list">
+    <li>Организация <span>{{item.title}}</span>:</li>
+    <button *ngIf="this.treeServices.indicatorFullOrganization" type="button" class="btn-flat right" (click)="this.headOrganizationServices.openBranchOrganizator(item.id)">Филиалы</button>
+    <button type="button"
+            class="btn-flat right" (click)="this.treeServices.openFullOrganization(item.id)">
+      Показать подробную информацию
+    </button>
+    <ul *ngIf="this.treeServices.indicatorFullOrganization && this.treeServices.idForFull == item.id">
+      <li>Сокращённое название: <span>{{item.short_title}}</span></li>
+      <li>ИНН: <span>{{item.inn}}</span></li>
+      <li>КПП: <span>{{item.kpp}}</span></li>
+      <li>Владелец: <span>{{item.founder}}</span></li>
+      <li>Адрес: <span>{{item.address}}</span></li>
+      <li>Телефон: <span>{{item.phone}}</span></li>
+      <div class="container" *ngIf="this.headOrganizationServices.indicatorBranchOrganization">
+        <app-branch-office></app-branch-office>
+        <button type="button" class="btn-flat" (click)="this.headOrganizationServices.closeBranchOrganizator()">Скрыть филиалы</button>
+      </div>
+    </ul>
+  </ul>
+</div>
+

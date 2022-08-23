@@ -1,0 +1,79 @@
+<div class="shadow" (click)="this.headOrganizationServices.closeModalEditHeadOrganization()"></div>
+<div class="modal custom-modal">
+  <form class="modal-content" [formGroup]="form">
+    <h4>Изменить данные об организации</h4>
+    <div>
+      <label
+        [ngClass]="(form.controls['id'].invalid && form.controls['id'].touched) ? this.errorClass : this.notErrorClass"
+        for="id">title</label>
+      <input
+        [ngClass]="form.controls['id'].invalid && form.controls['id'].touched ? this.errorClass : this.notErrorClass"
+        id="id" type="number" formControlName="id">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['title'].invalid && form.controls['title'].touched) ? this.errorClass : this.notErrorClass"
+        for="title">title</label>
+      <input
+        [ngClass]="form.controls['title'].invalid && form.controls['title'].touched ? this.errorClass : this.notErrorClass"
+        id="title" type="text" formControlName="title">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['short_title'].invalid && form.controls['short_title'].touched) ? this.errorClass : this.notErrorClass"
+        for="short_title">Вид животного</label>
+      <input
+        [ngClass]="form.controls['short_title'].invalid && form.controls['short_title'].touched ? this.errorClass : this.notErrorClass"
+        id="short_title" type="text" formControlName="short_title">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['inn'].invalid && form.controls['inn'].touched) ? this.errorClass : this.notErrorClass"
+        for="inn">Пол животного</label>
+      <input
+        [ngClass]="form.controls['inn'].invalid && form.controls['inn'].touched ? this.errorClass : this.notErrorClass"
+        id="inn" type="text" formControlName="inn">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['kpp'].invalid && form.controls['kpp'].touched) ? this.errorClass : this.notErrorClass"
+        for="kpp">Ссылка на фото/видео</label>
+      <input
+        [ngClass]="form.controls['kpp'].invalid && form.controls['kpp'].touched ? this.errorClass : this.notErrorClass"
+        id="kpp" type="text" formControlName="kpp">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['founder'].invalid && form.controls['founder'].touched) ? this.errorClass : this.notErrorClass"
+        for="founder">Ответстветнное лицо </label>
+      <input
+        [ngClass]="form.controls['founder'].invalid && form.controls['founder'].touched ? this.errorClass : this.notErrorClass"
+        id="founder" type="text" formControlName="founder">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['address'].invalid && form.controls['address'].touched) ? this.errorClass : this.notErrorClass"
+        for="address">Дата рождения</label>
+      <input
+        [ngClass]="form.controls['address'].invalid && form.controls['address'].touched ? this.errorClass : this.notErrorClass"
+        id="address" type="text" placeholder="Укажите дату в формате ГГГГ-ММ-ДД" formControlName="address">
+    </div>
+    <div>
+      <label
+        [ngClass]="(form.controls['phone'].invalid && form.controls['phone'].touched) ? this.errorClass : this.notErrorClass"
+        for="phone">Вакцинация</label>
+      <input
+        [ngClass]="form.controls['phone'].invalid && form.controls['phone'].touched ? this.errorClass : this.notErrorClass"
+        id="phone" type="text" placeholder="Укажите дату в формате ГГГГ-ММ-ДД, после укажите примечание"
+        formControlName="phone">
+    </div>
+  </form>
+  <div class="modal-footer">
+    <a (click)="editData()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Добавить
+    </a>
+    <a (click)="this.headOrganizationServices.closeModalEditHeadOrganization()"
+       class=" modal-action modal-close waves-effect waves-red btn-flat">Закрыть
+    </a>
+  </div>
+</div>
